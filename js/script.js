@@ -1,4 +1,4 @@
-const BACKEND_ROOT_URL = "http://localhost:3001/"
+const BACKEND_ROOT_URL = "https://todo-backend-9mak.onrender.com/"
 import { Todos } from "./class/todos.js"
 
 const todos = new Todos(BACKEND_ROOT_URL)
@@ -40,7 +40,7 @@ const renderLink = (li, id) => {
 
 const getTask = () => {
     todos.getTasks().then((tasks) => {
-        list.innerHTML = ""; // <--- Limpia la lista antes de renderizar
+        list.innerHTML = ""; 
         tasks.forEach(task => {
             renderTask(task)
         })
@@ -72,7 +72,7 @@ input.addEventListener("keypress", (event) => {
         const task = input.value.trim()
         if (task !== ""){
             todos.addTask(task).then(() => {
-                getTask() // Refresca la lista completa desde el backend
+                getTask() 
                 input.value = ""
                 input.focus()
             })
